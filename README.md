@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PORTFOLIO-2026
+
+> A portfolio site for **Rudraksh Ramekar** — Product Designer & Developer.
+
+[![Deploy with Vercel](https://img.shields.io/badge/deploy-vercel-000?logo=vercel&logoColor=#fff)](https://vercel.com)
+[![Next.js](https://img.shields.io/badge/next.js-16-000000?logo=next.js&logoColor=#fff)](https://nextjs.org)
+
+## Status
+
+| Section | State |
+| --- | --- |
+| Hero | ✅ Complete |
+| Navigation | ✅ Complete |
+| Work / Projects | ⬜ Pending |
+| Philosophy / Experience | ⬜ Pending |
+| Contact | ⬜ Pending |
+
+## Overview
+
+This is the production portfolio for **2026** — exploring the intersection of
+product design, technology, and thoughtful digital experiences. The site is
+built with **Next.js 16 (App Router)** and styled with a custom design system
+(Satoshi + JetBrains Mono, Tailwind v4, GSAP + Lenis smooth scroll, and a
+custom WebGL `LightRays` background).
+
+## Meta
+
+- **Author:** Rudraksh Ramekar (`rudrx75`)
+- **Year:** 2026
+- **Stack:** Next.js 16 · React 19 · TypeScript · Tailwind CSS 4 · GSAP 3 · Lenis · Motion (motion/react)
+- **Fonts:** Satoshi Variable, JetBrains Mono (local, `next/font`)
+- **Design direction:** Swiss matrix / design direction
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# install
+npm install
+
+# dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# open http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Build
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+```
+.
+├── app/
+│   ├── layout.tsx          # root layout + metadata
+│   ├── page.tsx            # home → Hero
+│   ├── providers.tsx       # Lenis smooth scroll provider
+│   └── globals.css         # design tokens + reset
+├── components/
+│   ├── hero/               # Hero + navbar
+│   ├── LightRays.tsx       # WebGL light-ray background
+│   └── ui/
+├── lib/
+│   └── gsap.ts            # GSAP + ScrollTrigger registration
+├── public/
+│   ├── fonts/              # Satoshi, JetBrains Mono
+│   └── img/                # avatar, resume preview, satin texture
+└── ...
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Branch Strategy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Branch | Purpose |
+| --- | --- |
+| `main` | Production — what is live |
+| `dev` | Development — CI/CD runs here (builds, previews) |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Merge `dev` → `main` when promoting to production.
 
-## Deploy on Vercel
+## Deploy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Deploy to Vercel from the `main` branch:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+vercel --prod
+```
+
+## License
+
+MIT — © 2026 rudrx_75. See [LICENSE](./LICENSE).

@@ -1,0 +1,304 @@
+/* ================================
+   DESKTOP HOME BUTTON
+================================ */
+
+.homeButton {
+  position: fixed;
+  z-index: 100;
+  top: 24px;
+  left: 5.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 13px 19px;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 50px;
+  background: rgba(20, 20, 20, 0.25);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  color: rgba(244, 241, 237, 0.85);
+  font-size: 14.3px;
+  font-weight: 500;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.homeButton:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+/* ================================
+   NAVIGATION
+================================ */
+
+.heroNav {
+  position: fixed;
+  z-index: 100;
+  top: 24px;
+  right: 5.5%;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 13px 23px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50px;
+  background: rgba(35, 35, 35, 0.42);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.navItem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: rgba(244, 241, 237, 0.85);
+  font-size: 14.3px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition:
+    color 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.mobileHome {
+  display: none;
+}
+
+.navItem svg {
+  opacity: 0.75;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.navItem:hover {
+  color: #fff;
+}
+
+.navItem:hover svg {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.navContact {
+  gap: 5px;
+}
+
+.contactArrow {
+  opacity: 0.65;
+  margin-left: -2px;
+}
+
+.phoneMenuButton,
+.phoneDrawerOverlay {
+  display: none;
+}
+
+/* ================================
+   MOBILE NAVIGATION
+================================ */
+
+@media (max-width: 768px) {
+  .homeButton {
+    display: none;
+  }
+
+  .heroNav {
+    top: auto;
+    bottom: 16px;
+    left: 0;
+    right: 0;
+    width: calc(100% - 36px);
+    max-width: 460px;
+    margin-inline: auto;
+    justify-content: space-around;
+    gap: 0;
+    padding: 15px 10px;
+    border: 1px solid rgba(255, 255, 255, 0.17);
+    border-radius: 50px;
+    background: rgba(24, 24, 24, 0.76);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    box-shadow:
+      0 8px 30px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .mobileHome {
+    display: flex;
+  }
+
+  .navItem {
+    align-items: center;
+    justify-content: center;
+    min-width: 38px;
+    padding: 5px 9px;
+  }
+
+  .navItem svg {
+    width: 20px;
+    height: 20px;
+    opacity: 0.9;
+  }
+
+  .navItem span,
+  .contactArrow {
+    display: none;
+  }
+
+  .navContact {
+    gap: 0;
+  }
+}
+
+/* ================================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 380px) {
+  .heroNav {
+    width: calc(100% - 24px);
+    padding: 13px 6px;
+  }
+
+  .navItem {
+    padding: 5px 7px;
+  }
+}
+
+@media (max-width: 420px),
+  (max-height: 500px) and (orientation: landscape) and (pointer: coarse) {
+  .heroNav {
+    display: none;
+  }
+
+  .phoneMenuButton {
+    position: fixed;
+    z-index: 110;
+    top: 17px;
+    right: 18px;
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    background: rgba(20, 20, 20, 0.45);
+    color: var(--off-white);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    cursor: pointer;
+  }
+
+  .phoneDrawerOverlay {
+    position: fixed;
+    z-index: 120;
+    inset: 0;
+    display: flex;
+    justify-content: flex-end;
+    background: rgba(0, 0, 0, 0.45);
+  }
+
+  .phoneDrawer {
+    display: flex;
+    flex-direction: column;
+    width: min(86vw, 380px);
+    min-height: 100%;
+    overflow-y: auto;
+    padding: calc(26px + env(safe-area-inset-top)) 25px
+      calc(25px + env(safe-area-inset-bottom));
+    background: #fff;
+    color: #080808;
+    box-shadow: -16px 0 50px rgba(0, 0, 0, 0.16);
+  }
+
+  .phoneDrawerHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgba(8, 8, 8, 0.48);
+    font-family: var(--font-mono), monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+  }
+
+  .phoneDrawerClose {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border: 1px solid rgba(8, 8, 8, 0.12);
+    border-radius: 50%;
+    background: transparent;
+    color: #080808;
+    cursor: pointer;
+  }
+
+  .phoneDrawerLinks {
+    display: flex;
+    flex-direction: column;
+    margin-top: clamp(54px, 12vh, 105px);
+  }
+
+  .phoneDrawerLinks a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 70px;
+    border-bottom: 1px solid rgba(8, 8, 8, 0.13);
+    color: #080808;
+    font-size: clamp(28px, 8vw, 36px);
+    font-weight: 500;
+    letter-spacing: -0.045em;
+    transition: color 0.25s ease;
+  }
+
+  .phoneDrawerLinks a[aria-current="page"] {
+    color: var(--burgundy);
+  }
+
+  .phoneDrawerSignature {
+    margin-top: auto;
+    padding-top: 40px;
+    color: rgba(8, 8, 8, 0.52);
+    font-family: var(--font-mono), monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+}
+
+.homeButton:focus-visible,
+.navItem:focus-visible,
+.phoneMenuButton:focus-visible,
+.phoneDrawerClose:focus-visible,
+.phoneDrawerLinks a:focus-visible {
+  outline: 2px solid var(--off-white);
+  outline-offset: 4px;
+}
+
+@media (max-width: 420px),
+  (max-height: 500px) and (orientation: landscape) and (pointer: coarse) {
+  .phoneMenuButton:focus-visible,
+  .phoneDrawerClose:focus-visible,
+  .phoneDrawerLinks a:focus-visible {
+    outline-color: #080808;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .homeButton,
+  .navItem,
+  .navItem svg,
+  .phoneMenuButton {
+    transition: none;
+  }
+}
