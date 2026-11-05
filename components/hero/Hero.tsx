@@ -323,7 +323,7 @@ export default function Hero() {
           }
         >
           <Image
-            src="/main.webp"
+            src="/img/main.webp"
             alt="Monochrome dot matrix portrait"
             fill
             priority
