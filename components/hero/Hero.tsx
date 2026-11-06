@@ -38,6 +38,7 @@ const itemVariants = {
 export default function Hero() {
   const shouldReduceMotion = useReducedMotion();
   const [isResumePreviewOpen, setIsResumePreviewOpen] = useState(false);
+  const [isPortraitRevealed, setIsPortraitRevealed] = useState(false);
   const resumeButtonRef = useRef<HTMLAnchorElement>(null);
   const suppressResumeFocusRef = useRef(false);
 
@@ -95,6 +96,27 @@ export default function Hero() {
             maxDevicePixelRatio={1.5}
           />
         </div>
+        <motion.div
+          className={styles.heroSignature}
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 18 }}
+          animate={
+            shouldReduceMotion || isPortraitRevealed
+              ? { opacity: 1, y: 0 }
+              : { opacity: 0, y: 18 }
+          }
+          transition={
+            shouldReduceMotion
+              ? { duration: 0 }
+              : {
+                  duration: 0.8,
+                  delay: 0.8,
+                  ease: [0.22, 1, 0.36, 1],
+                }
+          }
+          aria-hidden="true"
+        >
+          RUDRAKSH
+        </motion.div>
 
         {/* Availability Indicator */}
         <motion.div
@@ -321,6 +343,7 @@ export default function Hero() {
                   ease: [0.22, 1, 0.36, 1],
                 }
           }
+          onAnimationComplete={() => setIsPortraitRevealed(true)}
         >
           <Image
             src="/img/main.webp"

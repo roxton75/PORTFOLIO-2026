@@ -2,6 +2,14 @@
    HERO
 ================================ */
 
+@font-face {
+  font-family: "Helina";
+  src: url("/fonts/Helina.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 .hero {
   position: relative;
   isolation: isolate;
@@ -59,6 +67,21 @@
   pointer-events: none;
 }
 
+.heroSignature {
+  position: absolute;
+  z-index: 2;
+  top: 18%;
+  right: 8.5%;
+  color: rgba(184, 176, 167, 0.3);
+  font-family: "Helina", sans-serif;
+  font-size: clamp(170px, 10.4vw, 220px);
+  font-weight: 400;
+  line-height: 0.85;
+  letter-spacing: -0.025em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
 /* ================================
    AVAILABILITY
 ================================ */
@@ -66,9 +89,9 @@
 .availability {
   position: absolute;
   z-index: 6;
-  top: 34px;
-  left: 52%;
-  translate: -50% 0;
+  top: 42px;
+  left: calc(5.5% + 130px);
+  translate: 0;
   display: flex;
   align-items: center;
   gap: 14px;
@@ -394,7 +417,7 @@
 
 .heroPortrait {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   right: 1%;
   bottom: 0;
   width: 57%;
@@ -464,9 +487,10 @@
 
 .heroIndex {
   position: absolute;
-  z-index: 6;
-  right: 5.5%;
-  bottom: 30px;
+  z-index: 7;
+  right: 1%;
+  bottom: 150px;
+  writing-mode: vertical-lr;
   display: flex;
   flex-direction: column;
   gap: 7px;
@@ -522,11 +546,31 @@
   }
 
   .availability {
-    left: 49%;
+    left: 50%;
+    translate: -50% 0;
   }
 
   .portraitMarker {
     left: 51%;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1100px) {
+  .heroSignature {
+    top: 50%;
+    right: 1%;
+    font-size: clamp(68px, 11vw, 120px);
+  }
+
+  .btnDark.btnResume {
+    border-color: #fff;
+    background: #fff;
+    color: var(--burgundy);
+  }
+
+  .btnDark.btnResume:hover {
+    border-color: var(--off-white);
+    background: var(--off-white);
   }
 }
 
@@ -559,6 +603,12 @@
   .availability,
   .portraitMarker {
     display: none;
+  }
+
+  .heroSignature {
+    top: 57%;
+    right: 15%;
+    font-size: clamp(84px, 10vw, 74px);
   }
 
   .heroContent {
@@ -632,7 +682,7 @@
   }
 }
 
-@media (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+@media (max-width: 599px) and (max-height: 500px) and (orientation: landscape) {
   .hero {
     height: 100svh;
     min-height: 100svh;
@@ -696,6 +746,305 @@
   }
 }
 
+@media (min-width: 600px) and (max-width: 1100px) {
+  .availability {
+    position: absolute;
+    top: 34px;
+    left: 50%;
+    right: auto;
+    translate: -50% 0;
+    display: flex;
+    width: auto;
+    height: auto;
+    max-width: none;
+    gap: 14px;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: rgba(244, 241, 237, 0.48);
+    font-size: 9.9px;
+    letter-spacing: 0.12em;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .availabilityDesktop {
+    display: block;
+  }
+
+  .availabilityPhone {
+    display: none;
+  }
+
+  .availability > .availabilityDot {
+    display: block;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1100px) {
+  .satinPanel {
+    inset: 0 0 auto;
+    width: 100%;
+    height: 45%;
+    background-position: center;
+    transform: none;
+  }
+
+  .satinFade {
+    background: linear-gradient(
+      180deg,
+      rgba(8, 8, 8, 0.05) 0%,
+      rgba(8, 8, 8, 0.55) 28%,
+      var(--black) 58%
+    );
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1100px) and (orientation: portrait) {
+  .hero {
+    height: 100svh;
+    min-height: 100svh;
+  }
+
+  .heroContent {
+    top: 12%;
+    left: 5%;
+    width: 90%;
+    translate: none;
+  }
+
+  .heroEyebrow {
+    margin-bottom: clamp(18px, 2.5vh, 28px);
+    font-size: clamp(8px, 1.2vw, 10px);
+  }
+
+  .heroHeading {
+    font-size: clamp(54px, 9vw, 76px);
+  }
+
+  .heroDescription {
+    max-width: 82%;
+    margin-top: clamp(14px, 2vh, 22px);
+    font-size: clamp(14px, 2.1vw, 17px);
+    line-height: 1.6;
+  }
+
+  .heroActions {
+    gap: clamp(10px, 1.6vw, 14px);
+    margin-top: clamp(18px, 2.5vh, 26px);
+  }
+
+  .heroActions .btnDark,
+  .heroActions .btnSecondary {
+    min-height: clamp(44px, 6vh, 52px);
+    padding-inline: clamp(14px, 2vw, 22px);
+    font-size: clamp(12px, 1.5vw, 14.3px);
+  }
+
+  .heroBottomMeta {
+    display: flex;
+    gap: clamp(10px, 1.8vw, 20px);
+    margin-top: clamp(22px, 3.5vh, 36px);
+    font-size: clamp(7px, 1vw, 9.9px);
+  }
+
+  .heroCoordinates {
+    display: flex;
+  }
+
+  .heroSignature {
+    top: 48%;
+    left: 50%;
+    right: auto;
+    translate: -50% 0;
+    font-size: clamp(100px, 20vw, 200px);
+  }
+
+  .heroCoordinates {
+    top: 42%;
+    right: 5%;
+    font-size: clamp(8px, 1.1vw, 11px);
+  }
+
+  .heroPortrait {
+    left: 50%;
+    right: auto;
+    bottom: 0;
+    width: 84%;
+    height: 54%;
+    translate: -50% 0;
+  }
+
+  .portraitImage {
+    object-position: center bottom;
+  }
+
+  .portraitMarker {
+    display: flex;
+    left: 5%;
+    top: 73%;
+    font-size: clamp(7px, 0.95vw, 8.8px);
+  }
+
+  .heroIndex {
+    top: 56%;
+    right: 3%;
+    bottom: auto;
+    translate: 0;
+    writing-mode: vertical-rl;
+    font-size: clamp(7px, 0.95vw, 8.8px);
+  }
+
+  .heroScroll {
+    left: 5%;
+    bottom: 90px;
+    font-size: clamp(7.7px, 1vw, 9.9px);
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1100px) and (orientation: landscape) {
+  .hero {
+    height: 100svh;
+    min-height: 100svh;
+  }
+
+  .heroContent {
+    top: 44%;
+    left: 5%;
+    width: 49%;
+    translate: 0 -50%;
+  }
+
+  .heroEyebrow {
+    margin-bottom: clamp(18px, 3vh, 30px);
+    font-size: clamp(8px, 1vw, 10px);
+  }
+
+  .heroHeading {
+    font-size: clamp(54px, 6.6vw, 78px);
+  }
+
+  .heroDescription {
+    max-width: 96%;
+    margin-top: clamp(14px, 2.2vh, 24px);
+    font-size: clamp(13.5px, 1.35vw, 16px);
+    line-height: 1.6;
+  }
+
+  .heroActions {
+    gap: clamp(10px, 1.4vw, 14px);
+    margin-top: clamp(18px, 2.8vh, 28px);
+  }
+
+  .heroActions .btnDark,
+  .heroActions .btnSecondary {
+    min-height: clamp(42px, 6.5vh, 50px);
+    padding-inline: clamp(14px, 1.8vw, 22px);
+    font-size: clamp(12px, 1.3vw, 14px);
+  }
+
+  .heroBottomMeta {
+    gap: clamp(10px, 1.4vw, 18px);
+    margin-top: clamp(18px, 3vh, 32px);
+    font-size: clamp(7px, 0.85vw, 9px);
+  }
+
+  .heroPortrait {
+    left: 50%;
+    right: auto;
+    bottom: 0;
+    width: 55%;
+    height: 91%;
+    translate: 0;
+  }
+
+  .portraitImage {
+    object-position: center bottom;
+  }
+
+  .heroSignature {
+    top: 28%;
+    left: 75%;
+    right: auto;
+    translate: -50% 0;
+    font-size: clamp(90px, 11vw, 130px);
+  }
+
+  .portraitMarker {
+    left: 55%;
+    top: 54%;
+    font-size: clamp(7px, 0.85vw, 8.8px);
+  }
+
+  .heroCoordinates {
+    top: 18%;
+    right: 5.5%;
+    font-size: clamp(8px, 1vw, 10px);
+  }
+
+  .heroIndex {
+    top: auto;
+    right: 1.5%;
+    bottom: 100px;
+    translate: none;
+    writing-mode: vertical-lr;
+    flex-direction: column;
+    font-size: clamp(7px, 0.85vw, 8.8px);
+  }
+
+  .heroScroll {
+    left: 5%;
+    bottom: 20px;
+    font-size: clamp(7.7px, 0.95vw, 9.9px);
+  }
+}
+
+@media (min-width: 600px) and (max-width: 1100px) and (max-height: 700px) and (orientation: landscape) {
+  .heroContent {
+    top: 43%;
+  }
+
+  .heroEyebrow {
+    margin-bottom: 14px;
+  }
+
+  .heroHeading {
+    font-size: clamp(46px, 6vw, 64px);
+  }
+
+  .heroDescription {
+    margin-top: 12px;
+    line-height: 1.45;
+  }
+
+  .heroActions {
+    margin-top: 14px;
+  }
+
+  .heroActions .btnDark,
+  .heroActions .btnSecondary {
+    min-height: 40px;
+  }
+
+  .heroBottomMeta {
+    display: none;
+  }
+
+  .heroSignature {
+    top: 28%;
+    font-size: clamp(78px, 10vw, 112px);
+  }
+
+  .heroCoordinates {
+    top: 5%;
+  }
+
+  .heroIndex {
+    bottom: 85px;
+  }
+}
+
 /* ================================
    SMALL MOBILE
 ================================ */
@@ -753,7 +1102,7 @@
 
   .heroContent {
     top: 14%;
-    margin-top: 42px;
+    margin-top: 22px;
   }
 
   .heroActions {
@@ -783,7 +1132,8 @@
   .portraitMarker {
     display: flex;
     left: 6%;
-    top: 68%;
+    font-size: 7.7px;
+    top: 73.5%;
   }
 
   .heroBottomMeta {
