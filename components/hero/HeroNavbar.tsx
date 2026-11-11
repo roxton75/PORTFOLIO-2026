@@ -22,13 +22,13 @@ const links = [
     icon: BriefcaseBusiness,
   },
   {
-    label: "Philosophy",
-    href: "#philosophy",
+    label: "Projects",
+    href: "#projects",
     icon: Lightbulb,
   },
   {
-    label: "Experience",
-    href: "#experience",
+    label: "MISC",
+    href: "#misc",
     icon: Layers3,
   },
 ];
@@ -55,6 +55,7 @@ export default function HeroNavbar() {
   const [isPhoneDrawerOpen, setIsPhoneDrawerOpen] = useState(false);
   const [isPhoneDrawerMounted, setIsPhoneDrawerMounted] = useState(false);
   const [activeSection, setActiveSection] = useState("#home");
+  const [isPastHero, setIsPastHero] = useState(false);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -66,6 +67,22 @@ export default function HeroNavbar() {
     updateActiveSection();
     window.addEventListener("hashchange", updateActiveSection);
     return () => window.removeEventListener("hashchange", updateActiveSection);
+  }, []);
+
+  useEffect(() => {
+    const updateNavbarSurface = () => {
+      const hero = document.getElementById("home");
+      setIsPastHero(Boolean(hero && hero.getBoundingClientRect().bottom <= 0));
+    };
+
+    updateNavbarSurface();
+    window.addEventListener("scroll", updateNavbarSurface, { passive: true });
+    window.addEventListener("resize", updateNavbarSurface);
+
+    return () => {
+      window.removeEventListener("scroll", updateNavbarSurface);
+      window.removeEventListener("resize", updateNavbarSurface);
+    };
   }, []);
 
   const closePhoneDrawer = useCallback(() => {
@@ -121,7 +138,7 @@ export default function HeroNavbar() {
       {/* Separate Desktop Home Button */}
       <motion.a
         href={homeLink.href}
-        className={styles.homeButton}
+        className={`${styles.homeButton} ${isPastHero ? styles.scrolled : ""}`}
         aria-label="Home"
         initial={shouldReduceMotion ? false : { opacity: 0, x: -15 }}
         animate={{ opacity: 1, x: 0 }}
@@ -150,7 +167,7 @@ export default function HeroNavbar() {
                 delay: 0.8,
               }
         }
-        className={styles.heroNav}
+        className={`${styles.heroNav} ${isPastHero ? styles.scrolled : ""}`}
         aria-label="Main navigation"
       >
         {/* Mobile Home */}
@@ -199,7 +216,9 @@ export default function HeroNavbar() {
       <button
         ref={menuButtonRef}
         type="button"
-        className={styles.phoneMenuButton}
+        className={`${styles.phoneMenuButton} ${
+          isPastHero ? styles.scrolled : ""
+        }`}
         aria-label="Open navigation menu"
         aria-expanded={isPhoneDrawerOpen}
         aria-controls="phone-navigation-drawer"

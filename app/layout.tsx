@@ -27,7 +27,7 @@ const jetbrains = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Rudraksh Ramekar | Product Designer & Developer",
+  title: "Rudraksh Ramekar | Portfolio",
   description:
     "Exploring the intersection of product design, technology, and thoughtful digital experiences.",
 };

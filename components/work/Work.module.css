@@ -1,0 +1,571 @@
+/* ================================
+   WORK SECTION
+================================ */
+
+.work {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #f4f4f4;
+  color: #080808;
+}
+
+.backgroundGrid {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ================================
+   PROFILE BLOCK
+================================ */
+
+.profileBlock {
+  position: absolute;
+  top: 9%;
+  left: 5.5%;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  width: clamp(150px, 21vw, 300px);
+  gap: 12px;
+}
+
+.profileImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.45 / 1;
+  overflow: hidden;
+  background: #080808;
+}
+
+.profilePhoto {
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+.profileCaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-family: var(--font-mono), monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: #555;
+}
+
+/* ================================
+   TOP INFORMATION
+================================ */
+
+.infoBlock {
+  position: absolute;
+  top: 12%;
+  z-index: 3;
+  width: 190px;
+}
+
+.experienceIntro {
+  left: 34%;
+}
+
+.educationIntro {
+  left: 52%;
+}
+
+.infoHeading {
+  display: block;
+  margin-bottom: 13px;
+  font-family: var(--font-satoshi), sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.infoBlock p {
+  margin: 0;
+  color: #555;
+  font-size: 12px;
+  line-height: 1.7;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.accentLine {
+  display: block;
+  width: 32px;
+  height: 3px;
+  margin-top: 15px;
+  background: var(--burgundy);
+}
+
+/* ================================
+   EDITORIAL LABELS
+================================ */
+
+.verticalLabel {
+  position: absolute;
+  top: 12%;
+  right: 5.5%;
+  z-index: 3;
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+}
+
+.verticalLabel > span {
+  width: 2px;
+  height: 125px;
+  background: #080808;
+}
+
+.verticalLabel p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1.25;
+  letter-spacing: 0.2em;
+  writing-mode: vertical-rl;
+}
+
+.sideLabel {
+  position: absolute;
+  bottom: 9%;
+  left: 5.5%;
+  z-index: 2;
+  font-family: var(--font-satoshi), sans-serif;
+  font-size: clamp(65px, 9vw, 130px);
+  line-height: 0.8;
+  font-weight: 900;
+  letter-spacing: -0.07em;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.workDot {
+  color: var(--burgundy);
+}
+
+/* ================================
+   EXPERIENCE CARD
+================================ */
+
+.experienceCard {
+  position: absolute;
+  right: 0;
+  bottom: 8%;
+  z-index: 1;
+  display: flex;
+  align-items: stretch;
+  width: 70%;
+  min-height: 46%;
+  background: var(--burgundy);
+  color: var(--off-white);
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 55%;
+  padding: 65px 9%;
+}
+
+.cardNumber {
+  display: block;
+  margin-bottom: 30px;
+  color: rgba(244, 241, 237, 0.65);
+  font-family: var(--font-mono), monospace;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+}
+
+.roleTitle {
+  max-width: 430px;
+  margin: 0;
+  font-family: var(--font-satoshi), sans-serif;
+  font-size: clamp(32px, 3.5vw, 56px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
+.company {
+  margin: 25px 0 0;
+  
+  color: rgba(244, 241, 237, 0.7);
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.period {
+  margin: 10px 0 0;
+  color: #fff;
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+}
+
+.description {
+  max-width: 350px;
+  margin: 17px 0 0;
+  color: rgba(244, 241, 237, 0.7);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* ================================
+   CARD NAVIGATION
+================================ */
+
+.cardNavigation {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.nextButton {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: grid;
+  width: 100px;
+  height: 50px;
+  place-items: center;
+  border: 0;
+  background: #080808;
+  color: #fff;
+  cursor: pointer;
+  pointer-events: auto;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.nextButton:hover {
+  background: #fff;
+  color: var(--burgundy);
+}
+
+.pagination {
+  position: absolute;
+  top: 50%;
+  right: 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transform: translateY(-50%);
+  pointer-events: auto;
+}
+
+.paginationDot {
+  width: 15px;
+  height: 15px;
+  padding: 0;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.paginationDot:hover {
+  transform: scale(1.15);
+}
+
+.activeDot {
+  background: #fff;
+}
+
+/* ================================
+   TABLET LANDSCAPE
+================================ */
+
+@media (min-width: 769px) and (max-width: 1100px) and (orientation: landscape) {
+  .profileBlock {
+    top: 8%;
+    left: 4%;
+    width: 18vw;
+  }
+
+  .experienceIntro {
+    left: 30%;
+  }
+
+  .educationIntro {
+    left: 52%;
+  }
+
+  .verticalLabel {
+    right: 3%;
+  }
+
+  .sideLabel {
+    left: 4%;
+    font-size: 9vw;
+  }
+
+  .experienceCard {
+    width: 72%;
+    min-height: 45%;
+    bottom: 7%;
+  }
+
+  .cardContent {
+    padding: 30px 7%;
+  }
+}
+
+/* ================================
+   TABLET PORTRAIT
+================================ */
+
+@media (min-width: 600px) and (max-width: 1100px) and (orientation: portrait) {
+  .work {
+    min-height: 100svh;
+  }
+
+  .profileBlock {
+    top: 9%;
+    left: 5%;
+    width: 27vw;
+  }
+
+  .infoBlock {
+    top: 10%;
+    width: 170px;
+  }
+
+  .experienceIntro {
+    left: 40%;
+  }
+
+  .educationIntro {
+    top: 24%;
+    left: 40%;
+  }
+
+  .verticalLabel {
+    top: 10%;
+    right: 5%;
+  }
+
+  .sideLabel {
+    bottom: 13%;
+    left: 5%;
+    font-size: 12vw;
+  }
+
+  .experienceCard {
+    bottom: 10%;
+    width: 80%;
+    min-height: 38%;
+  }
+
+  .cardContent {
+    width: 75%;
+    padding: 30px 7%;
+  }
+
+  .roleTitle {
+    font-size: clamp(32px, 5vw, 48px);
+  }
+}
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 599px) {
+  .work {
+    min-height: max(980px, 100svh);
+    padding-bottom: 80px;
+  }
+
+  /* PFP: top-left */
+  .profileBlock {
+    top: 8%;
+    left: 6%;
+    width: 42%;
+    gap: 8px;
+  }
+
+  .profileImage {
+    aspect-ratio: 1.35 / 1;
+  }
+
+  .profileCaption {
+    flex-direction: column;
+    gap: 4px;
+    font-size: 8px;
+    line-height: 1.5;
+  }
+
+  /* WORK: right of PFP */
+  .sideLabel {
+    right: 5%;
+    left: auto;
+    top: 4%;
+    bottom: auto;
+    font-size: 16vw;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+
+  /* Experience and education below profile row */
+  .infoBlock {
+    top: 30%;
+    width: 42%;
+  }
+
+  .experienceIntro {
+    left: 6%;
+  }
+
+  .educationIntro {
+    top: 30%;
+    left: 53%;
+  }
+
+  .infoHeading {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+
+  .infoBlock p {
+    font-size: 9px;
+    line-height: 1.6;
+  }
+
+  .accentLine {
+    width: 24px;
+    height: 2px;
+    margin-top: 10px;
+  }
+
+  /* Editorial marker stays above the card */
+  .verticalLabel {
+    top: 45%;
+    right: 6%;
+    gap: 7px;
+  }
+
+  .verticalLabel > span {
+    height: 68px;
+  }
+
+  .verticalLabel p {
+    font-size: 8px;
+    letter-spacing: 0.12em;
+  }
+
+  /* Burgundy card starts below the intro blocks */
+  .experienceCard {
+    top: 55%;
+    right: 0;
+    bottom: 7%;
+    width: 88%;
+    min-height: 330px;
+  }
+
+  .cardContent {
+    width: 100%;
+    padding: 30px 9% 75px;
+  }
+
+  .cardNumber {
+    margin-bottom: 17px;
+    font-size: 10px;
+  }
+
+  .roleTitle {
+    font-size: clamp(28px, 8vw, 38px);
+  }
+
+  .company {
+    margin-top: 17px;
+    font-size: 13px;
+  }
+
+  .period {
+    font-size: 9px;
+  }
+
+  .description {
+    max-width: 90%;
+    font-size: 11px;
+  }
+
+  .nextButton {
+    width: 65px;
+    height: 55px;
+  }
+
+  .nextButton svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .pagination {
+    right: 5%;
+    gap: 11px;
+  }
+
+  .paginationDot {
+    width: 11px;
+    height: 11px;
+  }
+}
+
+/* ================================
+   SMALL MOBILE
+================================ */
+
+@media (max-width: 380px) {
+  .work {
+    min-height: 1020px;
+  }
+
+  .profileBlock {
+    width: 40%;
+  }
+
+  .sideLabel {
+    left: 53%;
+    font-size: 14vw;
+  }
+
+  .infoBlock {
+    width: 43%;
+  }
+
+  .educationIntro {
+    left: 53%;
+  }
+
+  .experienceCard {
+    top: 56%;
+    min-height: 320px;
+  }
+
+  .cardContent {
+    padding-inline: 8%;
+  }
+}
+
+/* ================================
+   REDUCED MOTION
+================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .nextButton,
+  .paginationDot {
+    transition: none;
+  }
+}

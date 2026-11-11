@@ -1,4 +1,5 @@
-@import "tailwindcss";
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
 
 /* ================================
    GLOBAL DESIGN TOKENS
@@ -53,4 +54,21 @@ a {
   html {
     scroll-behavior: auto;
   }
+}
+
+/* Hide scrollbar across the entire website */
+html {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
