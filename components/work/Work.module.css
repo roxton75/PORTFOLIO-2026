@@ -7,22 +7,23 @@
   position: relative;
   isolation: isolate;
   width: 100%;
-  height: 100dvh;
-  padding: clamp(32px, 4vh, 56px) clamp(5%, 8vw, 12%);
+  min-height: 100svh;
+  padding: clamp(20px, 3vh, 44px) clamp(5%, 8vw, 12%);
   background: var(--off-white);
   color: var(--black, #080808);
-  overflow: hidden;
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .container {
   width: 100%;
-  max-width: 1800px;
+  max-width: 1440px;
   margin-inline: auto;
-  height: 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
+  min-height: 0;
   overflow: hidden;
 }
 
@@ -59,7 +60,7 @@
   margin: 0 0 8px;
   color: var(--muted, #88837f);
   font-size: 16px;
-  line-height: 1.8;
+  line-height: 1.4;
   text-align: right;
 }
 
@@ -70,7 +71,7 @@
 .workLayout {
   display: grid;
   grid-template-columns: minmax(0, 30fr) minmax(0, 70fr);
-  align-items: stretch;
+  align-items: start;
   gap: clamp(16px, 1.5vw, 24px);
   flex: 1;
   min-height: 0;
@@ -84,7 +85,7 @@
   display: flex;
   flex-direction: column;
   min-width: 0;
-  padding: clamp(20px, 2.5vw, 28px);
+  padding: clamp(16px, 2vw, 24px);
   background: rgba(255, 255, 253, 0.55);
   backdrop-filter: blur(32px) saturate(200%);
   -webkit-backdrop-filter: blur(32px) saturate(200%);
@@ -124,7 +125,7 @@
   background: #e9e6e2;
   border: none;
   border-radius: 13px;
-  max-height: 240px;
+  max-height: 255px;
 }
 
 .profilePhoto {
@@ -380,7 +381,7 @@
   transform: translateY(-4px);
   background: var(--burgundy);
   border-color: var(--burgundy);
-  box-shadow: 0 12px 28px rgba(126, 27, 50, 0.25);
+  box-shadow: none;
 }
 
 .statItem:hover .statValue,
@@ -426,7 +427,16 @@
   gap: 12px;
   min-width: 0;
   overflow-y: auto;
+  overflow-x: hidden;
   padding-right: 4px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.experienceList::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 /* ================================
@@ -437,10 +447,11 @@
   position: relative;
   display: grid;
   flex: 1;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  grid-template-columns: minmax(0, 0.4fr) minmax(0, 0.6fr);
   align-items: stretch;
-  gap: clamp(8px, 1vw, 16px);
+  gap: clamp(12px, 1.5vw, 24px);
   min-width: 0;
+  min-height: 180px;
   padding: clamp(12px, 1vw, 18px);
   background: rgba(255, 255, 253, 0.55);
   backdrop-filter: blur(32px) saturate(200%);
@@ -451,7 +462,7 @@
     inset 0 -1px 0 rgba(8, 8, 8, 0.03),
     0 8px 32px rgba(8, 8, 8, 0.04);
   border-radius: 24px;
-  overflow: hidden;
+  overflow: visible;
   transition:
     transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.35s ease,
@@ -477,10 +488,6 @@
   transform: translateY(-4px);
   background: rgba(255, 255, 253, 0.85);
   border-color: rgba(8, 8, 8, 0.18);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.7),
-    inset 0 -1px 0 rgba(8, 8, 8, 0.03),
-    0 20px 48px rgba(8, 8, 8, 0.1);
 }
 
 /* ================================
@@ -522,7 +529,7 @@
   max-width: 100%;
   margin: 0;
   font-family: var(--font-satoshi), sans-serif;
-  font-size: clamp(25px, 2.5vw, 40px);
+  font-size: clamp(20px, 2vw, 32px);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.045em;
@@ -530,10 +537,10 @@
 }
 
 .company {
-  margin: 9px 0 0;
-  font-size: 12px;
+  margin: 6px 0 0;
+  font-size: 11px;
   font-weight: 500;
-  line-height: 1.5;
+  line-height: 1.4;
   color: #625e5a;
 }
 
@@ -546,9 +553,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 18px;
+  gap: 12px;
   min-width: 0;
-  padding: clamp(20px, 2.5vw, 30px);
+  padding: clamp(16px, 2vw, 24px);
   background: var(--black, #080808);
   color: var(--off-white);
   border: 1px solid rgba(244, 241, 237, 0.3);
@@ -595,14 +602,14 @@
 .responsibilities {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
   min-width: 0;
-  padding-right: 32px;
+  padding-right: 20px;
 }
 
 .detailsLabel {
   font-family: var(--font-mono), monospace;
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 500;
   letter-spacing: 0.15em;
   color: #88837f;
@@ -611,7 +618,7 @@
 .pointsList {
   display: flex;
   flex-direction: column;
-  gap: 7px;
+  gap: 5px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -619,9 +626,9 @@
 
 .pointsList li {
   position: relative;
-  padding-left: 16px;
-  font-size: 13px;
-  line-height: 1.65;
+  padding-left: 14px;
+  font-size: 11px;
+  line-height: 1.5;
   font-weight: 400;
   color: rgba(244, 241, 237, 0.85);
 }
@@ -629,10 +636,10 @@
 .pointsList li::before {
   content: "";
   position: absolute;
-  top: 9px;
+  top: 7px;
   left: 0;
-  width: 5px;
-  height: 5px;
+  width: 4px;
+  height: 4px;
   border-radius: 50%;
   background: var(--burgundy);
 }
@@ -642,27 +649,27 @@
 .skillsSection {
   display: flex;
   flex-direction: column;
-  gap: 13px;
+  gap: 8px;
   min-width: 0;
 }
 
 .skillsList {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
 }
 
 .skillTag {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 12px;
+  padding: 5px 9px;
   border: 1px solid rgba(244, 241, 237, 0.2);
   border-radius: 30px;
   color: rgba(244, 241, 237, 0.9);
   font-family: var(--font-mono), monospace;
-  font-size: 10px;
-  line-height: 1.3;
+  font-size: 9px;
+  line-height: 1.2;
   transition:
     background 0.3s ease,
     border-color 0.3s ease,
@@ -679,11 +686,11 @@
 
 .cardArrow {
   position: absolute;
-  top: 22px;
-  right: 22px;
+  top: 16px;
+  right: 16px;
   display: grid;
-  width: 34px;
-  height: 34px;
+  width: 28px;
+  height: 28px;
   place-items: center;
   border: 1px solid rgba(244, 241, 237, 0.25);
   border-radius: 50%;
@@ -702,47 +709,90 @@
 }
 
 /* ================================
-   TABLET
+   LAPTOP / SMALL VIEWPORT HEIGHT (fit within screen)
 ================================ */
 
-@media (max-width: 1100px) {
+@media (max-height: 720px) {
   .work {
-    padding-inline: 5%;
+    padding: clamp(16px, 3vh, 32px) clamp(4%, 6vw, 8%);
+  }
+
+  .sectionHeading {
+    margin-bottom: clamp(16px, 3vw, 28px);
+    gap: 30px;
+  }
+
+  .heading {
+    font-size: clamp(36px, 5vw, 60px);
+  }
+
+  .headingDescription {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 6px;
+  }
+
+  .profileCard {
+    padding: clamp(16px, 2vw, 22px);
+    max-height: none;
+  }
+
+  .profileImage {
+    max-height: 200px;
+  }
+
+  .profileIdentity {
+    margin-top: 12px;
+  }
+
+  .profileDivider {
+    margin: 12px 0;
+  }
+
+  .profileStats {
+    padding-top: 16px;
   }
 
   .workLayout {
-    grid-template-columns: minmax(0, 28fr) minmax(0, 72fr);
-    gap: 16px;
+    gap: clamp(12px, 1vw, 18px);
   }
 
   .experienceCard {
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-    padding: clamp(12px, 1vw, 18px);
-    min-height: 190px;
+    padding: clamp(10px, 1vw, 16px);
+    gap: clamp(8px, 1vw, 14px);
+    min-height: auto;
   }
 
   .experienceDetails {
-    padding: clamp(20px, 2vw, 28px);
-    gap: 18px;
+    padding: clamp(16px, 2vw, 24px);
+    gap: 16px;
+  }
+
+  .experienceInfo {
+    padding-left: clamp(6px, 1vw, 12px);
+  }
+
+  .role {
+    font-size: clamp(21px, 2.5vw, 30px);
+  }
+
+  .responsibilities {
+    padding-right: 20px;
   }
 
   .pointsList li {
     font-size: 12px;
   }
-
-  .role {
-    font-size: clamp(23px, 2.5vw, 30px);
-  }
 }
 
 /* ================================
-   MOBILE / TABLET PORTRAIT
+   TABLET
 ================================ */
 
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
   .work {
     height: auto;
-    min-height: 100svh;
+    min-height: auto;
     padding: 80px 5% 60px;
     display: block;
     align-items: initial;
@@ -835,7 +885,7 @@
 @media (max-width: 480px) {
   .work {
     height: auto;
-    min-height: 100svh;
+    min-height: auto;
     padding: 70px 5% 50px;
   }
 
