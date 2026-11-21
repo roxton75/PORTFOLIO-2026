@@ -8,7 +8,7 @@
   isolation: isolate;
   width: 100%;
   min-height: 100svh;
-  padding: clamp(20px, 3vh, 44px) clamp(5%, 8vw, 12%);
+  padding: clamp(80px, 10vh, 120px) clamp(5%, 8vw, 12%);
   background: var(--off-white);
   color: var(--black, #080808);
   display: flex;
@@ -813,9 +813,14 @@
     font-size: clamp(40px, 9vw, 58px);
   }
 
-  /* Hide introductory description */
+  /* Show description below heading */
   .headingDescription {
-    display: none;
+    display: block;
+    max-width: 100%;
+    margin: 12px 0 0;
+    font-size: 13px;
+    line-height: 1.6;
+    text-align: left;
   }
 
   /* Stack profile and experience */
